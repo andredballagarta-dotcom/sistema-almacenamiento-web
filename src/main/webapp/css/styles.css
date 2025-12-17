@@ -1,0 +1,813 @@
+/* ============================================
+   ESTILOS GENERALES
+   ============================================ */
+
+/* Esto es el reset básico y variables CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores principales inspirados en Eleodora */
+    --primary-color: #00a8e8;
+    --secondary-color: #0077b6;
+    --dark-color: #023e8a;
+    --light-color: #90e0ef;
+    --accent-color: #48cae4;
+    
+    /* Colores de fondo */
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --bg-dark: #001d3d;
+    
+    /* Colores de texto */
+    --text-dark: #212529;
+    --text-gray: #6c757d;
+    --text-light: #ffffff;
+    
+    /* Colores de estado */
+    --success: #00b894;
+    --warning: #fdcb6e;
+    --danger: #d63031;
+    --info: #74b9ff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   ESTILOS DE LOGIN
+   ============================================ */
+
+/* Esto es el fondo del login */
+.login-body {
+    background: linear-gradient(135deg, #00a8e8 0%, #0077b6 100%);
+    min-height: 100vh;
+}
+
+/* Esto es el contenedor principal del login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Esto es la tarjeta de login */
+.login-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Esto es el contenedor del logo - CON FONDO OSCURO */
+.logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, #001d3d 0%, #023e8a 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Esto es el logo de Eleodora */
+.logo-eleodora {
+    max-width: 280px;
+    height: auto;
+    filter: brightness(1.1) drop-shadow(0 2px 8px rgba(255, 255, 255, 0.2));
+}
+
+/* Esto es el encabezado del login */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    color: var(--secondary-color);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.login-header p {
+    color: var(--text-gray);
+    font-size: 1em;
+}
+
+/* Esto es el formulario de login */
+.login-form {
+    margin-bottom: 20px;
+}
+
+/* Esto son los grupos de formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #caf0f8;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s;
+    background-color: var(--bg-white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
+}
+
+/* Esto es el checkbox de recordar sesión */
+.form-group-checkbox {
+    margin-bottom: 25px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--text-gray);
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+/* Esto es el botón de login */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 168, 232, 0.3);
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 168, 232, 0.4);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* Esto es el mensaje de error */
+.error-message {
+    background-color: #ffe5e5;
+    color: var(--danger);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ffcccc;
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Esto es el pie del login */
+.login-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.login-footer p {
+    color: var(--text-gray);
+    font-size: 0.9em;
+}
+
+/* ============================================
+   ESTILOS DE NAVEGACIÓN
+   ============================================ */
+
+/* Esto es la barra de navegación superior */
+.navbar {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-color) 100%);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 8px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+/* Esto es el logo en el navbar */
+.logo-navbar {
+    height: 45px;
+    width: auto;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.navbar-brand h1 {
+    font-size: 1.3em;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-usuario {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-usuario span {
+    color: white;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+/* Esto es el botón de cerrar sesión */
+.btn-logout {
+    padding: 10px 20px;
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(214, 48, 49, 0.3);
+}
+
+.btn-logout:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(214, 48, 49, 0.4);
+}
+
+/* ============================================
+   ESTILOS DE SIDEBAR
+   ============================================ */
+
+/* Esto es el sidebar de navegación lateral */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 75px;
+    width: 260px;
+    height: calc(100vh - 75px);
+    background-color: var(--bg-white);
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+    padding: 20px 0;
+    overflow-y: auto;
+    z-index: 999;
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.menu-item a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: all 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.menu-icon {
+    font-size: 1.4em;
+    width: 30px;
+    text-align: center;
+}
+
+.menu-item.active a {
+    background-color: #e0f7ff;
+    color: var(--secondary-color);
+    border-left-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.menu-item a:hover {
+    background-color: #f0fbff;
+    color: var(--primary-color);
+    border-left-color: var(--accent-color);
+}
+
+/* ============================================
+   ESTILOS DE CONTENIDO PRINCIPAL
+   ============================================ */
+
+/* Esto es el contenido principal */
+.main-content {
+    margin-left: 260px;
+    margin-top: 75px;
+    padding: 30px;
+    min-height: calc(100vh - 75px);
+    background-color: var(--bg-light);
+}
+
+/* Esto es el encabezado de sección */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.section-header h2 {
+    color: var(--secondary-color);
+    font-size: 2em;
+    font-weight: 700;
+}
+
+/* Esto son los botones de acción */
+.btn-nuevo {
+    background: linear-gradient(135deg, var(--success) 0%, #00916e 100%);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+}
+
+.btn-nuevo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+}
+
+/* ============================================
+   ESTILOS DE FORMULARIOS
+   ============================================ */
+
+/* Esto es el formulario de equipos */
+.form-equipos,
+.form-cambio-estado {
+    background-color: var(--bg-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+    border-top: 4px solid var(--primary-color);
+}
+
+.form-equipos h3,
+.form-cambio-estado h3 {
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+/* Esto son las filas de formulario */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Esto son las acciones del formulario */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-guardar,
+.btn-cambiar-estado {
+    flex: 1;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 168, 232, 0.3);
+}
+
+.btn-guardar:hover,
+.btn-cambiar-estado:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 168, 232, 0.4);
+}
+
+.btn-cancelar {
+    flex: 1;
+    padding: 14px;
+    background-color: var(--text-gray);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-cancelar:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   ESTILOS DE TABLAS
+   ============================================ */
+
+/* Esto es el contenedor de tabla */
+.tabla-container {
+    background-color: var(--bg-white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--accent-color);
+}
+
+.tabla-container h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+/* Esto es la tabla de datos */
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-datos thead {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+}
+
+.tabla-datos th,
+.tabla-datos td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.tabla-datos th {
+    font-weight: 600;
+    font-size: 0.95em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tabla-datos tbody tr {
+    transition: all 0.2s;
+}
+
+.tabla-datos tbody tr:hover {
+    background-color: #e0f7ff;
+    transform: scale(1.01);
+}
+
+/* Esto son los badges de estado */
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.badge-almacen {
+    background-color: #e0f7ff;
+    color: var(--secondary-color);
+    border: 1px solid #90e0ef;
+}
+
+.badge-reparacion {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid var(--warning);
+}
+
+.badge-alistamiento {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid var(--success);
+}
+
+.badge-salida {
+    background-color: #e2e3e5;
+    color: #383d41;
+    border: 1px solid #6c757d;
+}
+
+/* Esto son los botones de iconos */
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: all 0.2s;
+    border-radius: 6px;
+}
+
+.btn-icon:hover {
+    transform: scale(1.2);
+    background-color: #f0fbff;
+}
+
+.btn-editar:hover {
+    color: var(--warning);
+}
+
+.btn-eliminar:hover {
+    color: var(--danger);
+}
+
+/* ============================================
+   ESTILOS DE ESTADOS
+   ============================================ */
+
+/* Esto es el selector de equipo */
+.selector-equipo {
+    background-color: var(--bg-white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    border-top: 4px solid var(--primary-color);
+}
+
+.selector-equipo label {
+    display: block;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.select-equipo {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #caf0f8;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.select-equipo:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
+}
+
+/* Esto es el panel de estado actual */
+.panel-estado-actual {
+    background-color: var(--bg-white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--accent-color);
+}
+
+.panel-estado-actual h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.info-equipo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.info-equipo p {
+    margin: 0;
+    font-size: 1.05em;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.info-equipo strong {
+    color: var(--secondary-color);
+}
+
+/* Esto es el badge de estado */
+.estado-badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+/* ============================================
+   ESTILOS DE TIMELINE
+   ============================================ */
+
+/* Esto es el historial de estados */
+.historial-estados {
+    background-color: var(--bg-white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 30px;
+    border-top: 4px solid var(--info);
+}
+
+.historial-estados h3 {
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Esto es la línea de tiempo */
+.timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--accent-color) 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -32px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 4px solid white;
+    box-shadow: 0 0 0 3px var(--accent-color);
+}
+
+.timeline-content {
+    background-color: #e0f7ff;
+    padding: 18px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.timeline-content h4 {
+    margin: 0 0 10px 0;
+    color: var(--secondary-color);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    margin: 5px 0;
+    color: var(--text-dark);
+}
+
+.timeline-fecha {
+    color: var(--text-gray);
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* ============================================
+   ESTILOS RESPONSIVOS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-equipo {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar-brand h1 {
+        font-size: 1em;
+    }
+    
+    .logo-navbar {
+        height: 35px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .btn-nuevo {
+        width: 100%;
+    }
+}
+
+/* ============================================
+   ANIMACIONES ADICIONALES
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card,
+.form-equipos,
+.tabla-container,
+.panel-estado-actual {
+    animation: fadeIn 0.5s ease;
+}
